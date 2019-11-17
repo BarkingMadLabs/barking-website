@@ -1,25 +1,7 @@
 import React, { useState, Component } from 'react';
 import './App.css';
 import 'semantic-ui-css/semantic.min.css';
-import { Button, Grid, Menu, Header, Image } from 'semantic-ui-react';
-
-const Projects = () => {
-  return (
-    <h1>Projects</h1>
-  );
-};
-
-const About = () => {
-  return (
-    <h1>About</h1>
-  );
-};
-
-const News = () => {
-  return (
-    <h1>News</h1>
-  );
-};
+import { Grid, Menu, Image } from 'semantic-ui-react';
 
 const Home = () => {
   var headerStyle = {
@@ -86,7 +68,7 @@ const Home = () => {
   );
 };
 
-const LandingPage = () => {
+const ContentPage = () => {
   return (
     <>
       <Home/>
@@ -94,52 +76,37 @@ const LandingPage = () => {
   )
 };
 
-const Page = () => {
+const LandingPage = () => {
   
-  const [current, setCurrent] = useState('home');
+  const [currentLanguage, setCurrentLanguage] = useState('en');
 
-  const menuChanged = (e, { name }) => {
-    setCurrent(name);
+  const menuChanged = (e, { language }) => {
+    setCurrentLanguage(language);
   }
   return (
     <>
       <Menu secondary>
         <Menu.Item
-          name='home'
-          active={current === 'home'}
+          name='en'
+          active={currentLanguage === 'en'}
           onClick={menuChanged}
         />
         <Menu.Item
-          name='projects'
-          active={current === 'projects'}
-          onClick={menuChanged}
-        />
-        <Menu.Item
-          name='about'
-          active={current === 'about'}
-          onClick={menuChanged}
-        />
-        <Menu.Item
-          name='news'
-          active={current === 'news'}
+          name='es'
+          active={currentLanguage === 'es'}
           onClick={menuChanged}
         />
       </Menu>
-      {current === 'home' && <Home/>}
-      {current === 'projects' && <Projects/>}
-      {current === 'about' && <About/>}
-      {current === 'news' && <News/>}
+      {currentLanguage === 'en' && <ContentPage/>}
+      {currentLanguage === 'es' && <ContentPage/>}
     </>
   );
 };
 
 class App extends Component {
-  state = {current: 'projects'};
-
   render() {
     return (
       <div className="App">
-        {/* <Page {...this.state} /> */}
         <LandingPage/>
     </div>
     )
