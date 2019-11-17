@@ -72,8 +72,8 @@ const LandingPage = () => {
   
   const [currentLanguage, setCurrentLanguage] = useState('en');
 
-  const menuChanged = (e, { language }) => {
-    setCurrentLanguage(language);
+  const menuChanged = (e, { name }) => {
+    setCurrentLanguage(name);
   }
   return (
     <>
