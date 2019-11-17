@@ -3,7 +3,7 @@ import './App.css';
 import 'semantic-ui-css/semantic.min.css';
 import { Grid, Menu, Image } from 'semantic-ui-react';
 
-const Home = () => {
+const ContentPage = () => {
   var headerStyle = {
     backgroundColor: 'white',
     padding: '30px'
@@ -66,14 +66,6 @@ const Home = () => {
       </Grid.Row>      
     </Grid>
   );
-};
-
-const ContentPage = () => {
-  return (
-    <>
-      <Home/>
-    </>
-  )
 };
 
 const LandingPage = () => {
